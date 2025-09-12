@@ -1,0 +1,9 @@
+Requirements
+
+- Python 3.x
+
+- requests (or similar) for API calls
+
+- SQLAlchemy (or another ORM / direct sqlite3)
+
+- A modern browser to view the HTML output
