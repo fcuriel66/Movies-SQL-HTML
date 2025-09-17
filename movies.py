@@ -1,11 +1,15 @@
 import statistics
 import random
 import requests
+import os
+from dotenv import load_dotenv
 # Functions to manipulate SQL info file
 import movie_storage_sql as storage
 
 # API request URL
+load_dotenv()
 url = "https://www.omdbapi.com/"
+API_KEY = os.getenv('API_KEY')
 
 # Menu Options menu_text
 menu_text = [
@@ -59,13 +63,14 @@ def add_movie(movies_old):
       print("You entered nothing...")
       movie_name = input("Write the name of the film to be added: ").strip().lower()
     try:
-      if movie_name in movies_old.keys():
+      movies_lowcase = [w.lower() for w in list(movies_old.keys())]
+      if movie_name in movies_lowcase:
           print("\n++++ A movie with that name already exists!+++\n")
           print("--> Try instead with a different movie name or with option (4) to modify the movie rating")
           print("     ------------------------------------------------------------------------\n")
       else:
           # API request. Checks connection and generates exception if not good
-          params = {"apikey": "2e6d1c1a","t": movie_name}
+          params = {"apikey": API_KEY,"t": movie_name}
           try:
               response = requests.get(url, params=params, timeout = 5)
               response.raise_for_status()
