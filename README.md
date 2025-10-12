@@ -14,7 +14,7 @@ A small project that builds a static website of movies, feeding content from an 
 ---
 
 ## 📁 Project Structure
-
+```
 Movies-SQL-HTML/
 ├── data/
 │ └── movies.db # SQLite database file
@@ -25,7 +25,7 @@ Movies-SQL-HTML/
 ├── movies.py # Script (or module) for interacting with the movies API
 ├── movie_storage_sql.py # Module for database storage/query logic
 └── README.md
-
+```
 ---
 
 ## 🛠️ Setup & Usage
